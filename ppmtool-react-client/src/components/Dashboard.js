@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 class Dashboard extends Component {
 
     componentDidMount() {
-        this.props.getProjects()
+        this.props.getProjects();
     }
 
     render() {
@@ -23,11 +23,9 @@ class Dashboard extends Component {
                             <CreateProjectButton/>
                             <br/>
                             <hr/>
-                            {
-                                projects.map(project => (
-                                    <ProjectItem key={project.id} project={project}/>
-                                ))
-                            }
+                            {projects.map(project => (
+                                <ProjectItem key={project.id} project={project}/>
+                            ))}
                         </div>
                     </div>
                 </div>

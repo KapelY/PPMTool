@@ -3,6 +3,7 @@ package io.igileintelligence.ppmtool.web;
 import io.igileintelligence.ppmtool.domain.Project;
 import io.igileintelligence.ppmtool.services.MapValidationErrorService;
 import io.igileintelligence.ppmtool.services.ProjectService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -10,8 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/project")
+@CrossOrigin
 public class ProjectController {
 
     private final ProjectService projectService;

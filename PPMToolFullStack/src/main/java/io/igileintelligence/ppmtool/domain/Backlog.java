@@ -3,7 +3,7 @@ package io.igileintelligence.ppmtool.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,9 +23,11 @@ public class Backlog {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id", nullable = false)
     @JsonIgnore
+    @ToString.Exclude
     private Project project;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "backlog")
+    @OneToMany(cascade = CascadeType.REFRESH,
+            fetch = FetchType.EAGER, mappedBy = "backlog", orphanRemoval = true)
     private List<ProjectTask> projectTasks = new ArrayList<>();
 
 }

@@ -3,6 +3,7 @@ package io.igileintelligence.ppmtool.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -16,7 +17,7 @@ public class ProjectTask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(updatable = false)
+    @Column(updatable = false, unique = true)
     private String projectSequence;
     @NotBlank(message = "Please include a project summary")
     private String summary;
@@ -29,9 +30,10 @@ public class ProjectTask {
     @Column(updatable = false)
     private String projectIdentifier;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "backlog_id", updatable = false, nullable = false)
     @JsonIgnore
+    @ToString.Exclude
     private Backlog backlog;
 
     @PrePersist

@@ -48,7 +48,11 @@ public class ProjectTaskService {
     }
 
     public List<ProjectTask> findBacklogByIdentifier(String backlog_identifier) {
-        return projectTaskRepository.findByProjectIdentifierOrderByPriority(backlog_identifier);
+        List<ProjectTask> projectTasks = projectTaskRepository.findByProjectIdentifierOrderByPriority(backlog_identifier);
+        if (projectTasks.isEmpty()) {
+            throw new ProjectNotFoundException("Project with ID: '" + backlog_identifier + "' doesn't exist");
+        }
+        return projectTasks;
     }
 
     public ProjectTask findPTByProjectSequence(String backlog_id, String pt_id) {

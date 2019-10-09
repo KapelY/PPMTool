@@ -7,5 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class ProjectNotFoundExceptionResponse {
 
-    private String message;
+    private String projectNotFound;
 }

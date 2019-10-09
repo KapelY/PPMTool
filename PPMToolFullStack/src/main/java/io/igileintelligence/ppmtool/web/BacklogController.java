@@ -38,8 +38,8 @@ public class BacklogController {
     }
 
     @GetMapping("/{backlog_id}")
-    public ResponseEntity<List<ProjectTask>> getProjectBacklog(@PathVariable String backlog_id) {
-        return new ResponseEntity<>(projectTaskService.findBacklogByIdentifier(backlog_id), HttpStatus.OK);
+    public List<ProjectTask> getProjectBacklog(@PathVariable String backlog_id) {
+        return projectTaskService.findBacklogByIdentifier(backlog_id);
     }
 
     @GetMapping("/{backlog_id}/{pt_id}")

@@ -43,7 +43,7 @@ class ProjectTask extends Component {
                         View / Update
                     </Link>
                     <button className="btn btn-danger ml-4"
-                    onClick={this.onDeleteClick.bind(this, project_task.projectIdentifier, project_task.projectSequence)}
+                            onClick={this.onDeleteClick.bind(this, project_task.projectIdentifier, project_task.projectSequence)}
                     >
                         Delete
                     </button>
@@ -57,4 +57,4 @@ ProjectTask.propTypes = {
     deleteProjectTask: PropTypes.func.isRequired
 };
 
-export default connect(null, {deleteProjectTask}) (ProjectTask);
+export default connect(null, {deleteProjectTask})(ProjectTask);

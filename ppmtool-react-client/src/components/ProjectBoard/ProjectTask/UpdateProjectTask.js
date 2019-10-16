@@ -34,7 +34,7 @@ class UpdateProjectTask extends Component {
 
         if (nextProps.errors) {
             this.setState({errors: nextProps.errors});
-            console.log("ERRORS "+this.state.errors)
+            console.log("ERRORS " + this.state.errors)
         }
 
         const {

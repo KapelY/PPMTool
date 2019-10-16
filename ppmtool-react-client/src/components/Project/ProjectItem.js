@@ -35,10 +35,10 @@ class ProjectItem extends Component {
                                         <i className="fa fa-edit pr-1"> Update Project Info</i>
                                     </li>
                                 </Link>
-                                    <li className="list-group-item delete" onClick={this.onDeleteClick.bind(this,
-                                        project.projectIdentifier)}>
-                                        <i className="fa fa-minus-circle pr-1"> Delete Project</i>
-                                    </li>
+                                <li className="list-group-item delete" onClick={this.onDeleteClick.bind(this,
+                                    project.projectIdentifier)}>
+                                    <i className="fa fa-minus-circle pr-1"> Delete Project</i>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -52,4 +52,4 @@ ProjectItem.propTypes = {
     deleteProject: PropTypes.func.isRequired
 };
 
-export default connect(null, {deleteProject}) (ProjectItem);
+export default connect(null, {deleteProject})(ProjectItem);

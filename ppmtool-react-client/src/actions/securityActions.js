@@ -21,22 +21,22 @@ export const createNewUser = (newUser, history) => async dispatch => {
 };
 
 export const login = LoginRequest => async dispatch => {
-  try {
-      const res = await axios.post("/api/users/login", LoginRequest);
-      const {token} = res.data;
-      localStorage.setItem("jwtToken", token);
-      setJWTToken(token);
-      const decoded = jwt_decode(token);
-      dispatch ({
-          type: SET_CURRENT_USER,
-          payload: decoded
-      })
-  } catch (e) {
-      dispatch ({
-          type: GET_ERRORS,
-          payload: e.response.data
-      })
-  }
+    try {
+        const res = await axios.post("/api/users/login", LoginRequest);
+        const {token} = res.data;
+        localStorage.setItem("jwtToken", token);
+        setJWTToken(token);
+        const decoded = jwt_decode(token);
+        dispatch({
+            type: SET_CURRENT_USER,
+            payload: decoded
+        })
+    } catch (e) {
+        dispatch({
+            type: GET_ERRORS,
+            payload: e.response.data
+        })
+    }
 };
 
 export const logout = () => dispatch => {

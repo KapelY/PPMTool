@@ -47,7 +47,7 @@ class Login extends Component {
     }
 
     render() {
-        const { errors } = this.state;
+        const {errors} = this.state;
 
         return (
             <div className="login">
@@ -105,4 +105,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {login}) (Login);
+export default connect(mapStateToProps, {login})(Login);

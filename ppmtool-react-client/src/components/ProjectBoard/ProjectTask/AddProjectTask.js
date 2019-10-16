@@ -20,8 +20,8 @@ class AddProjectTask extends Component {
             "projectIdentifier": id,
             errors: {}
         };
-        this.onChange=this.onChange.bind(this);
-        this.onSubmit=this.onSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -32,7 +32,7 @@ class AddProjectTask extends Component {
 
     onChange(e) {
         this.setState({
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -136,11 +136,11 @@ class AddProjectTask extends Component {
 
 AddProjectTask.propTypes = {
     addProjectTask: PropTypes.func.isRequired,
-    errors:PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    errors:state.errors
+    errors: state.errors
 });
 
 export default connect(mapStateToProps, {addProjectTask})(AddProjectTask);

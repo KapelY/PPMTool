@@ -17,7 +17,6 @@ export default function (state = initialState, action) {
                 validToken: booleanActionPayload(action.payload),
                 user: action.payload
             };
-
         default:
             return state
     }

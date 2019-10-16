@@ -30,7 +30,8 @@ class UpdateProject extends Component {
             projectIdentifier,
             description,
             start_date,
-            end_date} = nextProps.project;
+            end_date
+        } = nextProps.project;
         this.setState({
             id,
             projectName,
@@ -47,7 +48,7 @@ class UpdateProject extends Component {
     }
 
     onChange(e) {
-        this.setState({[e.target.name]:e.target.value})
+        this.setState({[e.target.name]: e.target.value})
     }
 
     onSubmit(e) {
@@ -59,7 +60,7 @@ class UpdateProject extends Component {
             description: this.state.description,
             start_date: this.state.start_date,
             end_date: this.state.end_date
-        }
+        };
 
         this.props.createProject(updateProject, this.props.history)
     }
@@ -78,7 +79,7 @@ class UpdateProject extends Component {
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg", {
-                                            "is-invalid":errors.projectName
+                                            "is-invalid": errors.projectName
                                         })}
                                         placeholder="Project Name"
                                         name="projectName"
@@ -95,7 +96,7 @@ class UpdateProject extends Component {
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg", {
-                                            "is-invalid":errors.projectIdentifier
+                                            "is-invalid": errors.projectIdentifier
                                         })}
                                         placeholder="Unique Project ID"
                                         name="projectIdentifier"
@@ -106,7 +107,7 @@ class UpdateProject extends Component {
                                 <div className="form-group">
                                     <textarea
                                         className={classnames("form-control form-control-lg", {
-                                            "is-invalid":errors.description
+                                            "is-invalid": errors.description
                                         })}
                                         placeholder="Project Description"
                                         name="description"
@@ -124,7 +125,7 @@ class UpdateProject extends Component {
                                     <input
                                         type="date"
                                         className={classnames("form-control form-control-lg", {
-                                            "is-invalid":errors.start_date
+                                            "is-invalid": errors.start_date
                                         })}
                                         name="start_date"
                                         value={this.state.start_date}
@@ -136,7 +137,7 @@ class UpdateProject extends Component {
                                     <input
                                         type="date"
                                         className={classnames("form-control form-control-lg", {
-                                            "is-invalid":errors.end_date
+                                            "is-invalid": errors.end_date
                                         })}
                                         name="end_date"
                                         value={this.state.end_date}
@@ -168,4 +169,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {getProject, createProject}) (UpdateProject);
+export default connect(mapStateToProps, {getProject, createProject})(UpdateProject);
